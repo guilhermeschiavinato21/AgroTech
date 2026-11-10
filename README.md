@@ -3,7 +3,7 @@
 > Plataforma digital centralizada para controlar colheitas, estoque, voluntários e doações das hortas comunitárias gerenciadas pelo Sr. Carlos.
 
 Este repositório contém o **relatório de protótipo de projeto (escopo)** do **AgroTech**: a visão geral, os atores, os casos de uso, a estrutura de dados (diagrama de classes) e o fluxo do processo de doação (BPMN). O documento é uma página HTML estática, pronta para visualização no navegador ou impressão.
-
+ 
 ![Status](https://img.shields.io/badge/status-prot%C3%B3tipo%20de%20escopo-yellow?style=flat)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![UML](https://img.shields.io/badge/UML-casos%20de%20uso%20e%20classes-blue?style=flat)
