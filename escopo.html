@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Escopo - AgroTech</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; line-height: 1.6; }
+        h2, h3 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; page-break-inside: avoid; }
+        th, td { border: 1px solid #bdc3c7; padding: 10px; text-align: left; vertical-align: top; }
+        th { background-color: #f2f4f4; color: #2c3e50; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        ul { margin: 0; padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>Relatório de Protótipo de Projeto (Escopo) - AgroTech</h2>
+
+    <h3>1. Visão Geral e Atores do Projeto</h3>
+    <table>
+        <tr>
+            <th>Componente</th>
+            <th>Descrição Simplificada</th>
+        </tr>
+        <tr>
+            <td><strong>Objetivo Principal</strong></td>
+            <td>Realizar a transformação digital das hortas comunitárias gerenciadas pelo Sr. Carlos.</td>
+        </tr>
+        <tr>
+            <td><strong>Problema Atual</strong></td>
+            <td>Processos manuais de colheita, estoque, voluntários e doações, gerando perda de dados e falta de histórico.</td>
+        </tr>
+        <tr>
+            <td><strong>Solução Proposta</strong></td>
+            <td>Plataforma digital segura e centralizada para garantir controle operacional e eficiência administrativa.</td>
+        </tr>
+        <tr>
+            <td><strong>Atores Principais</strong></td>
+            <td>
+                <ul>
+                    <li><strong>Administrador:</strong> Gestão geral do sistema (cadastrar hortas, registrar colheitas, controlar estoques, gerenciar doações e emitir relatórios).</li>
+                    <li><strong>Voluntários:</strong> Acesso a cronogramas de atividades, confirmação em colheitas e registro de tarefas realizadas.</li>
+                    <li><strong>Beneficiários:</strong> Recebimento das doações realizadas pela comunidade.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Atores Secundários</strong></td>
+            <td>Fornecedores e parceiros comunitários (stakeholders secundários que influenciam diretamente a operação).</td>
+        </tr>
+    </table>
+
+    <h3>2. Funcionalidades e Relacionamentos (Casos de Uso)</h3>
+    <table>
+        <tr>
+            <th>Elemento de Escopo</th>
+            <th>Aplicação no Sistema AgroTech</th>
+        </tr>
+        <tr>
+            <td><strong>Funcionalidades Reais</strong></td>
+            <td>Cadastrar Voluntário, Agendar Colheita, Registrar Colheita, Controlar Estoque, Realizar Doação e Emitir Relatórios.</td>
+        </tr>
+        <tr>
+            <td><strong>Relacionamento Obrigatório &lt;&lt;include&gt;&gt;</strong></td>
+            <td>O caso de uso "Realizar Doação" inclui obrigatoriamente "Verificar Estoque" para garantir a disponibilidade dos itens antes da conclusão do processo.</td>
+        </tr>
+        <tr>
+            <td><strong>Relacionamento Opcional &lt;&lt;extend&gt;&gt;</strong></td>
+            <td>O caso de uso "Agendar Colheita" pode ser estendido por "Enviar Notificação" quando houver voluntários cadastrados para receber mensagens automáticas.</td>
+        </tr>
+    </table>
+
+    <h3>3. Estrutura de Dados (Diagrama de Classes e Multiplicidades)</h3>
+    <table>
+        <tr>
+            <th>Classe Principal</th>
+            <th>Atributos Principais</th>
+            <th>Métodos Principais</th>
+            <th>Relacionamentos e Multiplicidades</th>
+        </tr>
+        <tr>
+            <td><strong>Voluntário</strong></td>
+            <td>idVoluntario, nome, telefone, disponibilidade</td>
+            <td>cadastrar(), atualizarDados(), confirmarParticipacao()</td>
+            <td><strong>Relacionamento N:N com Colheita:</strong> Vários voluntários participam de várias colheitas. Usa a classe intermediária <strong>Participação</strong> (horasTrabalhadas, funçãoExercida).</td>
+        </tr>
+        <tr>
+            <td><strong>Horta</strong></td>
+            <td>idHorta, localização, capacidadeProdução</td>
+            <td>gerenciarEstoque(), cadastrarColheita()</td>
+            <td><strong>Relacionamento 1:N com Colheita:</strong> Uma Horta possui várias Colheitas, mas cada Colheita pertence a apenas uma Horta.</td>
+        </tr>
+        <tr>
+            <td><strong>Colheita</strong></td>
+            <td>data, quantidadeProduzida, status</td>
+            <td>registrarColheita()</td>
+            <td>Conectada à Horta (1:N) e ao Voluntário (N:N).</td>
+        </tr>
+        <tr>
+            <td><strong>Doação</strong></td>
+            <td>quantidade, destinatário, data de entrega</td>
+            <td><i>Não especificado</i></td>
+            <td>Registra a saída de itens e o histórico operacional das doações.</td>
+        </tr>
+        <tr>
+            <td><strong>Estoque</strong></td>
+            <td><i>Não especificado</i></td>
+            <td><i>Não especificado</i></td>
+            <td>Entidade essencial para a validação de saídas e doações.</td>
+        </tr>
+    </table>
+
+    <h3>4. Fluxo do Processo (BPMN - Realizar Doação)</h3>
+    <table>
+        <tr>
+            <th>Etapa / Elemento</th>
+            <th>Tipo de Ação no Fluxo</th>
+            <th>Descrição do Comportamento</th>
+        </tr>
+        <tr>
+            <td><strong>Início do Processo</strong></td>
+            <td>Evento Inicial</td>
+            <td>O processo começa com o recebimento de uma solicitação de doação.</td>
+        </tr>
+        <tr>
+            <td><strong>Validação</strong></td>
+            <td>Tarefa de Sistema</td>
+            <td>O sistema realiza a verificação automática do estoque disponível.</td>
+        </tr>
+        <tr>
+            <td><strong>Gateway Exclusivo (XOR)</strong></td>
+            <td>Desvio de Decisão</td>
+            <td><strong>Estoque Insuficiente:</strong> O processo é encerrado com o envio de uma notificação de indisponibilidade.<br><strong>Estoque Suficiente:</strong> O sistema avança para a etapa de separação dos itens.</td>
+        </tr>
+        <tr>
+            <td><strong>Gateway Paralelo (AND)</strong></td>
+            <td>Ações Simultâneas</td>
+            <td>Permite a execução de duas tarefas simultâneas: atualização automática do estoque e envio de confirmação ao beneficiário.</td>
+        </tr>
+        <tr>
+            <td><strong>Fim do Processo</strong></td>
+            <td>Evento Final</td>
+            <td>Ocorre a entrega física da doação e o registro histórico definitivo da operação no sistema.</td>
+        </tr>
+        <tr>
+            <td><strong>Fluxos Intermediários</strong></td>
+            <td>Eventos Intermediários</td>
+            <td>Posicionados no fluxo para representar notificações automáticas, confirmações de recebimento e validações internas.</td>
+        </tr>
+    </table>
+
+</body>
+</html>
