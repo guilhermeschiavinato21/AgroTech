@@ -52,7 +52,7 @@ Este repositório contém o **relatório de protótipo de projeto (escopo)** do 
 ---
 
 ## 🗂️ Modelo de dados (Diagrama de Classes)
-
+ 
 | Classe | Atributos | Métodos | Relacionamentos |
 |---|---|---|---|
 | **Voluntário** | `idVoluntario`, `nome`, `telefone`, `disponibilidade` | `cadastrar()`, `atualizarDados()`, `confirmarParticipacao()` | **N:N com Colheita**, por meio da classe intermediária **Participação** (`horasTrabalhadas`, `funçãoExercida`) |
