@@ -41,7 +41,7 @@ Este repositório contém o **relatório de protótipo de projeto (escopo)** do 
 - Controlar Estoque
 - Realizar Doação
 - Emitir Relatórios
-
+ 
 ### Relacionamentos entre casos de uso
 
 | Tipo | Caso de uso base | Caso de uso relacionado | Regra |
