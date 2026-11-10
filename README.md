@@ -7,7 +7,7 @@ Este repositório contém o **relatório de protótipo de projeto (escopo)** do 
 ![Status](https://img.shields.io/badge/status-prot%C3%B3tipo%20de%20escopo-yellow?style=flat)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![UML](https://img.shields.io/badge/UML-casos%20de%20uso%20e%20classes-blue?style=flat)
-![BPMN](https://img.shields.io/badge/BPMN-processo%20de%20doa%C3%A7%C3%A3o-green?style=flat)
+![BPMN](https://img.shields.io/badge/BPMN-processo%20de%20doa%C3%A7%C3%A3o-green?style=flat) 
 
 --- 
 
