@@ -9,7 +9,7 @@ Este repositório contém o **relatório de protótipo de projeto (escopo)** do 
 ![UML](https://img.shields.io/badge/UML-casos%20de%20uso%20e%20classes-blue?style=flat)
 ![BPMN](https://img.shields.io/badge/BPMN-processo%20de%20doa%C3%A7%C3%A3o-green?style=flat)
 
----
+--- 
 
 ## 🎯 Sobre o projeto
 
